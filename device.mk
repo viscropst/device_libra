@@ -328,5 +328,5 @@ ifeq ($(IS_NOS),true)
 
     # List of targets that use video hw
     MSM_VIDC_TARGET_LIST := msm8992
-    $(call inherit-product, device/xiaomi/kenzo/utils.mk)
+    $(call inherit-product, device/xiaomi/libra/utils.mk)
 endif
