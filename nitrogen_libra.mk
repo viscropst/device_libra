@@ -19,6 +19,9 @@
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
+#To bootstrap the new experiment
+IS_NOS:=true
+
 # Provide meaningful APN configuration
 #PRODUCT_COPY_FILES := device/xiaomi/kenzo/configs/apns-full-conf.xml:system/etc/apns-conf.xml
 
