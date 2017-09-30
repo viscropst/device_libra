@@ -242,18 +242,14 @@ $(foreach n,$(1),$(patsubst $(n):%,%,$(filter $(n):%,$(pathmap_PROJ))))
 endef
 
 # Populate the qcom hardware variants in the project pathmap.
-define ril-set-path-variant
-$(call project-set-path-variant,ril,TARGET_RIL_VARIANT,hardware/$(1))
-endef
-
-$(call ril-set-path-variant,ril)
-$(call project-set-path,qcom-audio,hardware/qcom/caf/audio)
-$(call project-set-path,qcom-display,hardware/qcom/caf/display)
-$(call project-set-path,qcom-media,hardware/qcom/caf/media)
+$(call project-set-path,ril,hardware/ril-caf)
+#$(call project-set-path,qcom-audio,hardware/qcom/caf/audio)
+#$(call project-set-path,qcom-display,hardware/qcom/caf/display)
+#$(call project-set-path,qcom-media,hardware/qcom/caf/media)
 
 BOARD_USES_ADRENO := true
 
-TARGET_USES_QCOM_BSP := true
+#TARGET_USES_QCOM_BSP := true
 
 # Tell HALs that we're compiling an AOSP build with an in-line kernel
-TARGET_COMPILE_WITH_MSM_KERNEL := true
+#TARGET_COMPILE_WITH_MSM_KERNEL := true
