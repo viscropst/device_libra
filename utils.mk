@@ -199,3 +199,61 @@ $(strip \
   $(if $(strip $(acn)),true,) \
 )
 endef
+
+#
+# Returns the path to the requested module's include directory,
+# relative to the root of the source tree.  Does not handle external
+# modules.
+#
+# $(1): a list of modules (or other named entities) to find the includes for
+#
+define include-path-for
+$(foreach n,$(1),$(patsubst $(n):%,%,$(filter $(n):%,$(pathmap_INCL))))
+endef
+
+# Enter project path into pathmap
+#
+# $(1): name
+# $(2): path
+#
+define project-set-path
+$(eval pathmap_PROJ += $(1):$(2))
+endef
+
+# Enter variant project path into pathmap
+#
+# $(1): name
+# $(2): variable to check
+# $(3): base path
+#
+define project-set-path-variant
+    $(call project-set-path,$(1),$(strip \
+        $(if $($(2)), \
+            $(3)-$($(2)), \
+            $(3))))
+endef
+
+# Returns the path to the requested module's include directory,
+# relative to the root of the source tree.
+#
+# $(1): a list of modules (or other named entities) to find the projects for
+define project-path-for
+$(foreach n,$(1),$(patsubst $(n):%,%,$(filter $(n):%,$(pathmap_PROJ))))
+endef
+
+# Populate the qcom hardware variants in the project pathmap.
+define ril-set-path-variant
+$(call project-set-path-variant,ril,TARGET_RIL_VARIANT,hardware/$(1))
+endef
+
+$(call ril-set-path-variant,ril)
+$(call project-set-path,qcom-audio,hardware/qcom/caf/audio)
+$(call project-set-path,qcom-display,hardware/qcom/caf/display)
+$(call project-set-path,qcom-media,hardware/qcom/caf/media)
+
+BOARD_USES_ADRENO := true
+
+TARGET_USES_QCOM_BSP := true
+
+# Tell HALs that we're compiling an AOSP build with an in-line kernel
+TARGET_COMPILE_WITH_MSM_KERNEL := true
