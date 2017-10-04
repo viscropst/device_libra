@@ -179,3 +179,6 @@ WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
 # Jack Server args if RAM<=12G
 ANDROID_JACK_VM_ARGS := -Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4096m
+
+# FS configs (experimental)
+TARGET_FS_CONFIG_GEN += device/xiaomi/libra/configs/config.fs
