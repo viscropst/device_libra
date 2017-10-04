@@ -317,9 +317,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
+# Add kernel-headers 	
+$(call inherit-product-if-exists, hardware/qcom/msm8994/msm8992.mk)
 ifeq ($(IS_NOS),true)
-    # Add kernel-headers 	
-    $(call inherit-product-if-exists, hardware/qcom/msm8994/msm8992.mk)
     # Board platforms lists to be used for
     # TARGET_BOARD_PLATFORM specific featurization
     QCOM_BOARD_PLATFORMS := msm8992
