@@ -159,8 +159,8 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
 TARGET_RIL_VARIANT := caf
 
 # SELinux
-# include device/qcom/sepolicy/sepolicy.mk
-# BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Vendor init
 TARGET_INIT_VENDOR_LIB := libinit_msm
@@ -181,4 +181,4 @@ WPA_SUPPLICANT_VERSION           := VER_0_8_X
 ANDROID_JACK_VM_ARGS := -Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4096m
 
 # FS configs (experimental)
-TARGET_FS_CONFIG_GEN += device/xiaomi/libra/configs/config.fs
+# TARGET_FS_CONFIG_GEN += device/xiaomi/libra/configs/config.fs
