@@ -194,6 +194,10 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
+<<<<<<< HEAD
+=======
+    vendor.lineage.power@1.0-impl \
+>>>>>>> d76999b... power: switch to lineage interface
     power.msm8992
 
 PRODUCT_COPY_FILES += \
