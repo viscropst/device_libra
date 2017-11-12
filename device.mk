@@ -157,7 +157,7 @@ PRODUCT_COPY_FILES += \
 
 # IR
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-service.libra
+    consumerir.msm8992
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -193,13 +193,13 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # Power
+ifeq ($(TARGET_SUPPORT_PERF),true)
 PRODUCT_PACKAGES += \
-<<<<<<< HEAD
-=======
-    vendor.lineage.power@1.0-impl \
->>>>>>> d76999b... power: switch to lineage interface
     power.msm8992
-
+else
+PRODUCT_PACKAGES += \
+    vendor.libra.power@1.0-service
+endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
 

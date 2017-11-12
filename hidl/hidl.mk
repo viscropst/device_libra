@@ -37,6 +37,10 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl
+    
+# IR
+PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-impl
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -44,28 +48,28 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # Lights
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 
 # NFC
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl
 
 # OMX
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl
+    vendor.libra.power@1.0-impl
 
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # RIL
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0-impl \
     android.hardware.radio@1.0
 
@@ -85,14 +89,13 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
+    android.hardware.vibrator@1.0-service.lineage
 
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
 
 # Healthd
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
     android.hardware.health@1.0-service
