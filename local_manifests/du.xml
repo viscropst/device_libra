@@ -3,6 +3,9 @@
     <project path="device/xiaomi/libra" name="viscropst/device_libra" revision="oreo" remote="github" />
     <project path="kernel/xiaomi/msm8992" name="Demon000/kernel_xiaomi_libra" remote="github" revision="lineage-15.0"/>
     <project path="vendor/xiaomi" name="Demon000/vendor_xiaomi" remote="github" revision="lineage-15.0"/>
+    <project path="hardware/lineage/interfaces" name="LineageOS/android_hardware_lineage_interfaces" remote="github" revision="lineage-15.0" >
+    <copyfile dest="hardware/lineage/Android.bp" src="Android.bp"/>
+  </project>
   <!--  <project path="hardware/qcom/display/msm8994" name="DirtyUnicorns/android_hardware_qcom_display" remote="github" revision="n7x-caf-8994"/>
     <project path="hardware/qcom/media/msm8994" name="DirtyUnicorns/android_hardware_qcom_media" remote="github" revision="n7x-caf-8994"/>
     <remove-project name="android_hardware_qcom_audio"/>

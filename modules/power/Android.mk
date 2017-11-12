@@ -32,24 +32,6 @@ ifeq ($(TARGET_SUPPORT_POWER_PROFILE),true)
   
   LOCAL_SRC_FILES := perf/power.c
   
-else
- LOCAL_MULTILIB := both
- LOCAL_SHARED_LIBRARIES += libdl
- LOCAL_SRC_FILES := bull/power.c bull/metadata-parser.c bull/utils.c bull/list.c bull/hint-data.c
-
- # Include target-specific files.
- 
- ifeq ($(call is-board-platform-in-list, msm8994), true)
- LOCAL_SRC_FILES += bull/power-8994.c
- endif
- 
- ifeq ($(call is-board-platform-in-list, msm8992), true)
- LOCAL_SRC_FILES += bull/power-8992.c
- endif
- 
- ifeq ($(TARGET_USES_INTERACTION_BOOST),true)
-     LOCAL_CFLAGS += -DINTERACTION_BOOST
- endif
 endif
 
 include $(BUILD_SHARED_LIBRARY)
