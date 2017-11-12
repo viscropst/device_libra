@@ -1,0 +1,19 @@
+From b15d540d5bb60dd8042364b2174878ba509b098a Mon Sep 17 00:00:00 2001
+From: Demon000 <demonsingur@gmail.com>
+Date: Mon, 02 Oct 2017 17:55:08 +0300
+Subject: [PATCH] bt: symlink msm8994 to msm8992
+
+Allows usage of $(TARGET_BOARD_PLATFORM) to
+generate bt path.
+
+Change-Id: I62e91ac482023a59a222c23f4362759ed930defa
+---
+
+diff --git a/msm8994 b/msm8994
+new file mode 120000
+index 0000000..ae6e439
+--- /dev/null
++++ b/msm8994
+@@ -0,0 +1 @@
++msm8992
+\ No newline at end of file

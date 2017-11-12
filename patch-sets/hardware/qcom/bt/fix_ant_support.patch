@@ -1,0 +1,38 @@
+From 50bfe7a88fda56282ae7cfa3cb929c004573fb92 Mon Sep 17 00:00:00 2001
+From: Ketut Putu Kumajaya <ketut.kumajaya@gmail.com>
+Date: Sun, 17 Jul 2016 15:27:26 +0700
+Subject: [PATCH] bt: Fix ANT support for MSM8992/4
+
+Change-Id: I0b3663e527700257e1c612e788eb83e36a3a9410
+(cherry picked from commit 74b0e9f702d1a2af5e4e95e901270f6a15b878c4)
+---
+
+diff --git a/msm8992/libbt-vendor/Android.mk b/msm8992/libbt-vendor/Android.mk
+index ee4c0b8..70f5bb9 100644
+--- a/msm8992/libbt-vendor/Android.mk
++++ b/msm8992/libbt-vendor/Android.mk
+@@ -69,6 +69,9 @@
+ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+ LOCAL_MODULE_OWNER := qcom
+ 
++ifneq ($(BOARD_ANT_WIRELESS_DEVICE),)
++LOCAL_CFLAGS += -DENABLE_ANT
++endif
+ #LOCAL_CFLAGS += -DREAD_BT_ADDR_FROM_PROP
+ 
+ #include $(LOCAL_PATH)/vnd_buildcfg.mk
+diff --git a/msm8992/libbt-vendor/include/bt_vendor_qcom.h b/msm8992/libbt-vendor/include/bt_vendor_qcom.h
+index cf7d9e9..156d6c0 100644
+--- a/msm8992/libbt-vendor/include/bt_vendor_qcom.h
++++ b/msm8992/libbt-vendor/include/bt_vendor_qcom.h
+@@ -41,6 +41,10 @@
+     BT_SOC_RESERVED
+ }bt_soc_type;
+ 
++typedef enum {
++    BT_VND_OP_ANT_USERIAL_OPEN = 254,
++    BT_VND_OP_ANT_USERIAL_CLOSE
++}ant_serial;
+ 
+ extern bt_vendor_callbacks_t *bt_vendor_cbacks;
+ /* HW_NEED_END_WITH_HCI_RESET

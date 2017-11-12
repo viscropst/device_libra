@@ -1,0 +1,30 @@
+From c56bc681a44138d0b3c1892ae9753b2cf57f3c06 Mon Sep 17 00:00:00 2001
+From: Demon000 <demonsingur@gmail.com>
+Date: Mon, 02 Oct 2017 20:27:28 +0300
+Subject: [PATCH] ant_native: fix compilation for AOSP bt HALs
+
+Change-Id: I2192f38490468b8e6c273301fcf710ffa8e64de0
+---
+
+diff --git a/src/bt-vendor_vfs/Android.mk b/src/bt-vendor_vfs/Android.mk
+index 733c7bc..eb481bf 100644
+--- a/src/bt-vendor_vfs/Android.mk
++++ b/src/bt-vendor_vfs/Android.mk
+@@ -20,14 +20,15 @@
+ 
+ # needed to pull in the header file for libbt-vendor.so
+ BDROID_DIR:= system/bt
+-QCOM_DIR:= $(call project-path-for,bt-vendor)/libbt-vendor
++QCOM_DIR:= $(call project-path-for,bt-vendor)
+ 
+ # Added hci/include to give access to the header for the libbt-vendorso interface.
+ LOCAL_C_INCLUDES := \
+    $(LOCAL_PATH)/src/common/inc \
+    $(LOCAL_PATH)/$(ANT_DIR)/inc \
+    $(BDROID_DIR)/hci/include \
+-   $(QCOM_DIR)/include
++   $(QCOM_DIR)/libbt-vendor/include \
++   $(QCOM_DIR)/$(TARGET_BOARD_PLATFORM)/libbt-vendor/include
+ 
+ 
+ ifeq ($(BOARD_ANT_WIRELESS_DEVICE),"qualcomm-uart")
